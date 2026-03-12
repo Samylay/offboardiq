@@ -2,12 +2,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import {
   LayoutDashboard, Users, Brain, BarChart3, Settings, LogOut, Menu, X, Zap,
+  BookOpen, Shield,
 } from 'lucide-react';
 import { useState } from 'react';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Departures', href: '/departures', icon: Users },
+  { name: 'Knowledge Base', href: '/knowledge', icon: BookOpen },
+  { name: 'Risk Map', href: '/risk-map', icon: Shield },
   { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   { name: 'Settings', href: '/settings', icon: Settings },
 ];

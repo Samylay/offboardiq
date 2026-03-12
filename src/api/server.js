@@ -13,6 +13,9 @@ const interviewRoutes = require('./routes/interviews');
 const transferRoutes = require('./routes/transfers');
 const analyticsRoutes = require('./routes/analytics');
 const orgRoutes = require('./routes/organizations');
+const searchRoutes = require('./routes/search');
+const flightRiskRoutes = require('./routes/flightRisk');
+const webhookRoutes = require('./routes/webhooks');
 
 const { errorHandler } = require('./middleware/errorHandler');
 const { authenticate } = require('./middleware/auth');
@@ -54,6 +57,7 @@ app.get('/api/health', (req, res) => {
 
 // Public routes
 app.use('/api/auth', authRoutes);
+app.use('/api/webhooks', webhookRoutes);
 
 // Protected routes
 app.use('/api/organizations', authenticate, orgRoutes);
@@ -62,6 +66,8 @@ app.use('/api/knowledge', authenticate, knowledgeRoutes);
 app.use('/api/interviews', authenticate, interviewRoutes);
 app.use('/api/transfers', authenticate, transferRoutes);
 app.use('/api/analytics', authenticate, analyticsRoutes);
+app.use('/api/search', authenticate, searchRoutes);
+app.use('/api/flight-risk', authenticate, flightRiskRoutes);
 
 // Error handling
 app.use(errorHandler);
